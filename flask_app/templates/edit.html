@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <h1>Update {{recipe.name}}</h1>
+    {% with messages = get_flashed_messages() %}  
+                {% if messages %}   
+                    {% for message in messages %}   
+                        <p>{{message}}</p>  
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+    <form action="/recipes/edit/{{recipe.id}}" method="POST">
+        <label>Recipe Name:</label>
+        <input type="text" value="{{recipe.name}}" name="name">
+        <label>Under 30 minutes?</label><br>
+            <input type="radio" name="under" value="Yes"checked>
+            <label>Yes</label>
+            <input type="radio" name="under" value = "No">
+            <label>No</label>
+        <label>New Description:</label>
+        <input type="text" value="{{recipe.description}}" name="description">
+        <label>New Instruction:</label>
+        <input type="text" value="{{recipe.instructions}}" name="instructions">
+        <label>Date Cooked:</label>
+        <input type="date" value="{{recipe.date_cooked}}" name="date_cooked">
+        <input type="submit" value="Update Recipe">
+    </form>
+</body>
+</html>

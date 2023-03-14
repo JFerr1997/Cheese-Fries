@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Recipe</title>
+</head>
+<body>
+    <h1>Show Page</h1>
+    
+    <h3>{{recipes.name}}</h3> <h3>Posted by: {{recipes.chef.first_name}}</h3>
+    <p>Description:{{recipes.description}}</p>
+    <p>Under 30 minutes?{{recipes.under}}</p>
+    <p>Instructions:{{recipes.instructions}}</p>
+    <p>Date Made:{{recipes.date_cooked}}</p>
+    <a href="/recipes">Back to recipes</a>
+</body>
+</html>

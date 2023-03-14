@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Recipes</title>
+</head>
+<body>
+    <h1 style="display: flex;justify-content: space-evenly;">Recipe Share</h1>
+    <div style="display: flex; justify-content: space-evenly;">
+        <div class="register">
+            {% with messages = get_flashed_messages() %}  
+                {% if messages %}   
+                    {% for message in messages %}   
+                        <p>{{message}}</p>  
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <h2>Register</h2>
+        <form action="/register" method="POST">
+            <label>First Name:</label><br>
+            <input type="text" name="first_name"><br>
+            <label>Last Name:</label><br>
+            <input type="text" name="last_name"><br>
+            <label>Email:</label><br>
+            <input type="text"name="email"><br>
+            <label>Password:</label><br>
+            <input type="text" name="password"><br>
+            <label>Confirm Password:</label><br>
+            <input type="text" name="confirm_password"><br>
+            <input type="submit" value="Register">
+        </form>
+        </div>
+        <div class="login" method="POST">
+            <h2>Login</h2>
+            {% with messages = get_flashed_messages() %}  
+                {% if messages %}   
+                    {% for message in messages %}   
+                        <p>{{message}}</p>  
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        <form action="/login" method="POST" >
+            <label>Email:</label><br>
+            <input type="text" name="email"><br>
+            <label>Password:</label><br>
+            <input type="text" name="password"><br>
+            <input type="submit"  value="Login">
+        </form>
+        </div>
+    </div>
+</body>
+</html>
